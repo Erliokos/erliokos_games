@@ -1,5 +1,7 @@
 .test {
-  background-color: lightsteelblue;
+  background-color: rgb(19, 19, 19);
   width: 100vw;
   height: 100vh;
+  justify-content: space-around;
+  border-radius: ;
 }
