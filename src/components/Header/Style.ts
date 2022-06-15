@@ -9,8 +9,9 @@ export const Header = styled.div`
   height: 20vh;
 
 `
-export const ButtonGroup = styled.div`
+export const ButtonGroup = styled.div<{direction?: string}>`
   display flex;
+  flex-direction: ${(props)=>props.direction ?? 'row'} 
   align-items: center;
   justify-content: space-around;
   height: 50px;
