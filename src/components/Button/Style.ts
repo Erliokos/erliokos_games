@@ -11,10 +11,12 @@ export const Button = styled.button`
   font-size: 0.6rem;
   letter-spacing: 2px;
   text-transform: uppercase;
+  background-color: #434342;
   cursor: pointer;
   user-select: none;
   transition: 0.2s;
   border-radius: 2px;
+  color: #FFCD00;
 
   &:hover {
     transform: scale(1.05);

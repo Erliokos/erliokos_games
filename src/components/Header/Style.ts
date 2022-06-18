@@ -6,7 +6,7 @@ export const Header = styled.div`
   justify-content: center;
   background-color: lightgray;
   width: 100vw;
-  height: 20vh;
+  height: 30vh;
 
 `
 export const ButtonGroup = styled.div<{direction?: string}>`
@@ -14,6 +14,6 @@ export const ButtonGroup = styled.div<{direction?: string}>`
   flex-direction: ${(props)=>props.direction ?? 'row'} 
   align-items: center;
   justify-content: space-around;
-  height: 50px;
-  width: 40vw;
+  height: 60px;
+  width: 80vw;
 `

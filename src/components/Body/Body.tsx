@@ -12,9 +12,7 @@ export const Body = () => {
   
   return (
     <Styled.Body>
-        <Button label={'Что то делать'}  targetvalue={'25px'}/>
-        <Pixi/>
-        <Button label={'Что то делать'}  targetvalue={'25px'}/>
+      <Pixi/>
     </Styled.Body>
   )
 }

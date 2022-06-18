@@ -9,13 +9,15 @@ type TVector = {
 type TProps = {
   impulse: number,
   vector: TVector,
-  offGame: boolean
+  offGame: boolean,
+  xx: number;
+  yy: number;
 }
 
-export  function Fishka({impulse, vector, offGame}: TProps) {
+export  function Fishka({impulse, vector, offGame, xx, yy}: TProps) {
 
-  const [x, setX] = useState<number>(90);
-  const [y, setY] = useState<number>(40);
+  const [x, setX] = useState<number>(xx);
+  const [y, setY] = useState<number>(yy);
   const [speed, setSpeed] = useState<number>(impulse)
   const [vx, setVx] = useState<number>(1)
   const [vy, setVy] = useState<number>(1)
@@ -23,7 +25,9 @@ export  function Fishka({impulse, vector, offGame}: TProps) {
   const [isReverseY, setIsReverseY] = useState<boolean>(true)
   
   useTick(() => {
+    
     if(speed>0.05){
+      console.log(speed);
       setY((prev: number)=>prev+speed*vy)
       setX((prev: number)=>prev+speed*vx)
       setSpeed((prev: number)=>prev-(prev/(100-(prev+prev)*2)))
@@ -32,13 +36,13 @@ export  function Fishka({impulse, vector, offGame}: TProps) {
         setIsReverseX(false)
       }
       else if(!isReverseX) setIsReverseX(true)
-        
+
       if(y>569 || y<31){
         if(isReverseY) setVy((prev)=>prev*-1)
         setIsReverseY(false)
       }
       else if(!isReverseY) setIsReverseY(true)
-    }  
+    }
   });
 
  
