@@ -8,8 +8,8 @@ type TVector = {
 
 type TProps = {
   impulse: number,
-  vector: TVector,
-  offGame: boolean,
+  vector?: TVector,
+  offGame?: boolean,
   xx: number;
   yy: number;
 }
