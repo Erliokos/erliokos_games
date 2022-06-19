@@ -1,7 +1,7 @@
-import { Sprite, useTick } from '@inlet/react-pixi'
-import React, { useEffect, useState } from 'react'
+import { useTick } from '@inlet/react-pixi'
+import React, { useState } from 'react'
 import { initialGame } from '../../constants'
-import { EImage, TPeshka } from '../../type'
+import { TPeshka } from '../../type'
 import { getGame } from '../getGame'
 import Peshka from '../Pehka/Peshka'
 
@@ -9,9 +9,7 @@ import Peshka from '../Pehka/Peshka'
 
 export function MainGame() {
   const [gameState, setGameState] = useState<TPeshka[]>(initialGame)
-  const [frame, setFrame] = useState(1)
-
-  console.log(gameState[0].speed);
+  // const [frame, setFrame] = useState(1)
 
   useTick(()=>{
     setGameState(prev => getGame(prev))
@@ -26,10 +24,6 @@ export function MainGame() {
   //   if(frame>2) clearInterval(interval)
   // },[frame])
 
-
-
-  
-  
   return (
     <>
     {gameState.map(item => <Peshka key={item.id} {...item}/>)}

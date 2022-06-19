@@ -5,9 +5,9 @@ import { TPeshka } from '../../type'
 
 export default function Peshka(props: TPeshka) {
 
-  const {color, pos} = props
+  const {color, vector} = props
   
   return (
-    <Sprite image={color} x={pos.x} y={pos.y} anchor={0.5}/>
+    <Sprite image={color} x={vector.a.x} y={vector.a.y} anchor={0.5}/>
   )
 }

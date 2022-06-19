@@ -1,4 +1,4 @@
-import { EImage, TPeshka, TPosition, TVector } from "../type"
+import { EImage, TPeshka, TVector } from "../type"
 import { ACCELERATION, TIMEFRAME } from '../constants'
 
 const setPoint = (color: EImage) => {
@@ -17,21 +17,13 @@ const setPoint = (color: EImage) => {
 }
 
 
-const computedDistanse = (game: TPeshka[]) => {
+const computedGooal = (game: TPeshka[]) => {
   const newGame = game.filter((item) => {
-    const { pos } = item
-    if ((pos.x < 32 && pos.y < 32) || (pos.x < 32 && pos.y > 567) || (pos.x > 567 && pos.y < 32) || (pos.x > 567 && pos.y > 567)) {
+    const { vector } = item
+    if ((vector.a.x < 32 && vector.a.y < 32) || (vector.a.x < 32 && vector.a.y > 567) || (vector.a.x > 567 && vector.a.y < 32) || (vector.a.x > 567 && vector.a.y > 567)) {
       setPoint(item.color)
+      return false
     }
-    game.forEach((element) => {
-      if (element.id !== item.id) {
-        const { pos: position } = element
-        const distans = Math.sqrt(Math.pow(position.x - pos.x, 2) + Math.pow(position.y - pos.y, 2))
-        if (distans < 15) {
-          console.log('collision');
-        }
-      }
-    })
     return true
   })
   return newGame
@@ -72,15 +64,18 @@ const computedPosition = (game: TPeshka[]) => {
 }
 
 
-
+const computedCollision = (game: TPeshka[]): TPeshka[] => {
+  const newGame = game.map((item) => {
+    return item
+  })
+  return newGame 
+}
 
 
 
 export function getGame(game: TPeshka[]) {
 
-  const newGame = computedPosition(game)
-
-
-
+  const newGame = computedCollision(computedGooal(computedPosition(game)))
+  
   return newGame
 }

@@ -1,6 +1,5 @@
 export type TPeshka = {
   id: string
-  pos: TPosition
   speed: number
   color: EImage
   vector: TVector
