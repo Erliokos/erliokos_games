@@ -14,7 +14,7 @@ export const initialGame: TPeshka[] = [
     id: 'white_2',
     speed: 0,
     color: EImage.Black,
-    vector: {a: {x:147,y:419},b: {x:148,y:419}},
+    vector: {a: {x:147,y:419},b: {x:138,y:419}},
   },
 
 ]

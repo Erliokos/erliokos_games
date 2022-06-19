@@ -65,7 +65,23 @@ const computedPosition = (game: TPeshka[]) => {
 
 
 const computedCollision = (game: TPeshka[]): TPeshka[] => {
-  const newGame = game.map((item) => {
+
+  const gameWithTougle = game.map(item => ({...item, chek: false}))
+
+  const newGame = gameWithTougle.map((item) => {
+    item.chek = true
+    const {a: pos} = item.vector
+    gameWithTougle.forEach(element => {
+      if(element.chek) return
+      const {a: position} = element.vector
+      const distans = Math.sqrt(Math.pow(position.x - pos.x, 2) + Math.pow(position.y - pos.y, 2))
+      if(distans<15){
+        element.speed = item.speed
+        item.speed = 0
+        console.log(distans);
+        return
+      }
+    })
     return item
   })
   return newGame 
